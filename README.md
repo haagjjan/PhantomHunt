@@ -1,61 +1,114 @@
-# README
+# PhantomHunt
 
-## PhantomHunt - Multiplayer Game ##
+PhantomHunt is an asymmetric 2D multiplayer game built for the University of Basel CS108 programming project. Four players enter a haunted castle: one human tries to survive, while three phantoms coordinate to hunt them down.
 
-PhantomHunt is a strategic, turn-based 2D multiplayer game developed as part of the CS108 programming project. Experience thrilling chases inside a cursed castle where teamwork meets pure survival instinct.
+![PhantomHunt gameplay screenshot](documentations/images/Phantom-Hunt_game.png)
 
-## The Game Concept ##
+## Features
 
-In PhantomHunt, two unequal teams compete against each other: three ghosts versus one human. The setting: an unsuspecting human finds themselves inside a haunted castle. While the ghosts try to drive the intruder into madness, every second counts for the human trying to escape.
+- Asymmetric 3-vs-1 multiplayer rounds with rotating roles.
+- JavaFX client with lobby creation, joining, chat, spectating, high scores, and configurable key bindings.
+- TCP server that manages players, lobbies, rounds, scoring, and game-state broadcasts.
+- Tile-based castle map with collision handling, animated sprites, sound effects, ambient music, and ability pickups.
+- Four-round matches where every player gets one turn as the human.
 
-## Core Mechanics ##
+## Gameplay
 
-**Asymmetric Gameplay:**
-3 vs. 1 – each role has different abilities and objectives.
+The human earns points by surviving and can use abilities to escape pressure. Phantoms earn points by finding and catching the human. After four rounds, the player with the highest total score wins.
 
-**Scoring System:**
-- The human earns points by surviving as long as possible and successfully finishing a round.
-- The ghosts earn points by locating and scaring the human.
+Additional gameplay and project material from the original course submission is kept in `documentations/` and `outreach/`.
 
-**Fairness through rotation:**
-A match consists of four rounds. Each player takes the role of the human exactly once. After the final round, the player with the highest total score wins the match.
+## Tech Stack
 
-## How to Start the Game
+- Java 25
+- Gradle with the Gradle Wrapper
+- JavaFX 25
+- LWJGL / OpenAL for audio
+- Log4j 2
+- JUnit 5, Mockito, and JaCoCo for tests and coverage
 
-**Build the Executable Jar**
-Before running the game, you need to compile the code and build the executable .jar file. Open your terminal in the root directory of the project and run:
+## Requirements
 
-**./gradlew jar**
+- JDK 25 or a compatible Java toolchain available to Gradle
+- A terminal for starting the server and clients
+- Network access between the server host and client machines for multiplayer games
 
-**Run the Application**
-Once the build is successful you can start the game via the terminal using the following syntax:
+## Build
 
-java -jar build/libs/phantom-hunt.jar *mode* and *port / address:port*
+From the repository root:
 
-**Starting as a Server:**
-To host a server, set the mode to server and specify the port you want to open.
-For example:
-**java -jar build/libs/phantom-hunt.jar server 2222**
+```bash
+./gradlew jar
+```
 
-**Starting as a Client:**
-To join as a client, set the mode to client and provide the IP address and port of the host server.
-For example:
-**java -jar build/libs/phantom-hunt.jar client 192.168.1.9:2222**
+The executable jar is written to:
 
-## Running Tests and Quality Assurance
+```text
+build/libs/phantom-hunt.jar
+```
 
-To ensure the stability and correctness of the game, we use automated testing and coverage tools. Open the terminal in the root directory to run the following commands.
+Run the full build and tests with:
 
-**Execute Unit Tests:**
-To run all automated tests, execute: 
-**./gradlew test**
+```bash
+./gradlew build
+```
 
-This command will execute all unit tests and automatically generate a JaCoCo code coverage report.
+## Run
 
-**View Test Results:**
-After running the tests, you can open the detailed text report: 
-**open build/reports/tests/test/index.html**.
+Start one server:
 
-**View Code Coverage Report:**
-The JaCoCo coverage report can be viewed with:
-**open build/reports/jacoco/test/html/index.html**
+```bash
+java -jar build/libs/phantom-hunt.jar server 2222
+```
+
+Start each client with the server address:
+
+```bash
+java -jar build/libs/phantom-hunt.jar client localhost:2222
+```
+
+You can also pass a nickname as a third argument:
+
+```bash
+java -jar build/libs/phantom-hunt.jar client localhost:2222 PlayerName
+```
+
+Use the host machine's LAN IP address instead of `localhost` when clients connect from other machines.
+
+## Controls
+
+| Action | Default keyboard control |
+| --- | --- |
+| Move up | `W` |
+| Move left | `A` |
+| Move down | `S` |
+| Move right | `D` |
+| Wisdom Blessing, when available | `R` |
+| Toggle fullscreen | `F11` or `F` |
+
+Movement keys can be changed in the in-game key binding screen.
+
+## Project Structure
+
+```text
+src/main/java/        Game, client, server, protocol, JavaFX UI, and audio code
+src/main/resources/   Runtime assets, audio, intro video, and Log4j config
+src/test/java/        Unit and integration tests
+documentations/       Original project documentation, manual, diagrams, and asset sources
+outreach/             Original course outreach page and media assets
+gradle/wrapper/       Gradle Wrapper files
+```
+
+## Team
+
+- Jan Haag
+- Hermes Reisner
+- Vera Bitterlin
+- Silas Weber
+- Ismail Djemaili
+
+See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the contributor list.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

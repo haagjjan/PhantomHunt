@@ -1,51 +1,55 @@
-<html>
-<!-- Dies ist ein html Kommentar -->
-<!-- Ändert in diesem File sämtliche Platzhalter, wie z.B. den Spielnamen in der nächsten Linie -->
-<head><title>Phantom Hunt</title><link rel="stylesheet" href="main.css"></head>
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PhantomHunt</title>
+  <link rel="stylesheet" href="main.css">
+</head>
 <body>
-<!-- Header nicht verändern -->
-<header class="site-header"><div class="wrapper"><a class="site-title" href="/cs108/">Programmierprojekt - Computerspiele</a></div></header><div class="page-content"><div class="wrapper"><div class="home">
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/cs108/">Programmierprojekt - Computerspiele</a>
+    </div>
+  </header>
 
-  <h1>PhantomHunt</h1>
-  3 Geister jagen 1 Menschen, taktisches Multiplayer-Katz-und-Maus im verfluchten Schloss.
+  <div class="page-content">
+    <div class="wrapper">
+      <div class="home">
+        <h1>PhantomHunt</h1>
+        <p>Three phantoms hunt one human in a tactical multiplayer chase through a haunted castle.</p>
 
-<!-- Dieser Block ist dafür verantwortlich, den Trailer / das Gameplay Video und euren Screenshot einzubauen. Verändert ihn nicht, sondern überschreibt einfach die Dateien -->
-<br>
-<img width="250" src="screenshot.png">
-<br>
-<br>
-<h2>Trailer</h2>
-<video controls width="250">
-    <source src="video.mp4"
-            type="video/mp4">
-    Sorry, your browser doesn't support embedded videos.
-</video>
-<br>
-<br>
+        <img width="250" src="../documentations/images/Phantom-Hunt_game.png" alt="PhantomHunt gameplay screenshot">
 
-<!-- Entwickler anpassen -->
+        <h2>Trailer</h2>
+        <video controls width="250">
+          <source src="video.mp4" type="video/mp4">
+          Sorry, your browser does not support embedded videos.
+        </video>
 
-<h3>Entwickler:</h3>
-<ul>
-<li> Vera Bitterlin </li>
-<li> Ismail Dzemaili </li>
-<li> Jan Valentin Haag </li>
-<li> Silas Weber </li>
-  <li> Hermes Reisner </li>
+        <h2>Gameplay</h2>
+        <video controls width="250">
+          <source src="gameplay.mp4" type="video/mp4">
+          Sorry, your browser does not support embedded videos.
+        </video>
 
-</ul>
+        <h2>Developers</h2>
+        <ul>
+          <li>Jan Haag</li>
+          <li>Hermes Reisner</li>
+          <li>Vera Bitterlin</li>
+          <li>Silas Weber</li>
+          <li>Ismail Djemaili</li>
+        </ul>
 
-<!-- Nachfolgend sollt ihr die Tasten angeben, welche man braucht um euer Spiel zu Spielen. Um weitere Tasten hinzuzufügen könnt Ihr einfach eine Zeile kopieren und den Buchstaben oder das Wort zwischen <i>Beispiel:</i> ändern. -->
+        <h2>Controls</h2>
+        <p><strong>WASD / left stick:</strong> move</p>
+        <p><strong>R:</strong> use Wisdom Blessing when available</p>
 
-  <h2>Steuerung:</h2>
-  <i>WASD / Linker Stick:</i> bewegen<br/>
-
-<!-- Falls ihr noch zusätzliche Informationen wie Items oder andere Erklärungen angeben wollt, könnt Ihr das wie nachfolgend machen. -->
-
-  <h2>Faehigkeiten:</h2>
-  <i>Glitch-Power-Up:</i> Beruehrt der Mensch einen Geist, wird dieser teleportiert. (+10 Pts)<br/>
-  <i>Wisdom Blessing (Shift+R / X):</i> Alle Geister werden 8 Sekunden geblendet
-
-</div></div></div></div></body>
+        <h2>Abilities</h2>
+        <p><strong>Glitch power-up:</strong> if the human touches a phantom while active, the phantom is teleported and the human gains points.</p>
+        <p><strong>Wisdom Blessing:</strong> blinds all phantoms for a short time.</p>
+      </div>
+    </div>
+  </div>
+</body>
 </html>

@@ -1,43 +1,61 @@
-# OS-Files
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
 
-# IntelliJ files
+# IntelliJ IDEA
 .idea/
 *.iml
 *.ipr
 *.iws
 out/
 
-# Gradle files
+# Gradle
 .gradle/
 build/
 **/build/
 
-# Keep the Jar (wird auf der Webseite so verlangt, damit alle das genau gleich bauen können)
+# Keep the Gradle Wrapper jar.
 !gradle/wrapper/gradle-wrapper.jar
 
-# Keine Binaries oder kompilierte Files
+# Java build output
 *.class
+bin/
+target/
+*.jar
+*.war
+*.ear
+!gradle/wrapper/gradle-wrapper.jar
 
-# Ignore log files
+# Logs and crash dumps
 *.log
+logs/
 hs_err_pid*
 replay_pid*
 
-# Project specific files
+# IDE/project metadata
 .classpath
 .project
 *.eml
+.settings/
+.factorypath
 
-# Persistence & Data (runtime highscores stay local)
+# Runtime persistence
 highscores.csv
 
-# Ignore lwjgl files
+# Native/local runtime files
 .lwjgl/
 *.dll
 *.so
 *.dylib
 *.jnilib
 
-# Ignores the jfr files
+# Temporary and generated files
+*.tmp
+*.temp
+*.bak
+*.orig
+*~
+
+# Java Flight Recorder files
 *.jfr
