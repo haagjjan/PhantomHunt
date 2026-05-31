@@ -23,6 +23,7 @@ import javafx.scene.layout.*;
 import javafx.util.Duration;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -322,8 +323,8 @@ public class GameScene implements SceneInterface {
     nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
     TableColumn<Player, Integer> scCol = new TableColumn<>("Score");
     scCol.setCellValueFactory(new PropertyValueFactory<>("score"));
-    table.getColumns().addAll(nameCol, scCol);
-    table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+    table.getColumns().addAll(List.of(nameCol, scCol));
+    table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
 
     // Chat
     Label chatLabel = new Label("Chat");
@@ -344,11 +345,17 @@ public class GameScene implements SceneInterface {
 
     box.getChildren()
         .addAll(
-            statusBox, new Separator(),
-            scoreBox,
-            tableLabel, table,
-            chatLabel, chatArea, chatInput,
-            new Separator(), f11Hint);
+            List.of(
+                statusBox,
+                new Separator(),
+                scoreBox,
+                tableLabel,
+                table,
+                chatLabel,
+                chatArea,
+                chatInput,
+                new Separator(),
+                f11Hint));
 
     return box;
   }

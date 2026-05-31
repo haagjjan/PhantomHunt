@@ -15,6 +15,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import java.util.Map;
+import java.util.List;
 
 /** Scene displaying the global highscore leaderboard. */
 public class HighscoreScene implements SceneInterface {
@@ -38,12 +39,12 @@ public class HighscoreScene implements SceneInterface {
     scoreColumn.setCellValueFactory(
         data -> new SimpleIntegerProperty(data.getValue().getValue()).asObject());
 
-    tableView.getColumns().addAll(nameColumn, scoreColumn);
+    tableView.getColumns().addAll(List.of(nameColumn, scoreColumn));
 
     ObservableList<Map.Entry<String, Integer>> entries =
         FXCollections.observableArrayList(GameModel.getInstance().getHighscores().entrySet());
     tableView.setItems(entries);
-    tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+    tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
 
     Button btnBack = new Button("Back");
     btnBack.setStyle(SceneStyle.BUTTON);

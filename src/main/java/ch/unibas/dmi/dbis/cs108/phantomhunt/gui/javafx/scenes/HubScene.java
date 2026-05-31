@@ -15,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
+import java.util.List;
+
 /** The primary hub scene displaying the global chat, profile options, and lobby navigation. */
 public class HubScene implements SceneInterface {
 
@@ -68,13 +70,19 @@ public class HubScene implements SceneInterface {
     leftMenu
         .getChildren()
         .addAll(
-            profileBox,
-            new Separator(),
-            btnNickname, btnJoin, btnCreate, btnKeyBinding, btnHighscore,
-            new Separator(),
-            btnWisdom,
-            new Separator(),
-            onlineLabel, playerListDisplay);
+            List.of(
+                profileBox,
+                new Separator(),
+                btnNickname,
+                btnJoin,
+                btnCreate,
+                btnKeyBinding,
+                btnHighscore,
+                new Separator(),
+                btnWisdom,
+                new Separator(),
+                onlineLabel,
+                playerListDisplay));
 
     VBox chatBox = new VBox(10);
     chatBox.setPadding(new Insets(20));
@@ -98,7 +106,7 @@ public class HubScene implements SceneInterface {
                         () -> chatDisplay.scrollTo(chatDisplay.getItems().size() - 1)));
 
     chatMode = new ComboBox<>();
-    chatMode.getItems().addAll("Global", "Whisper");
+    chatMode.getItems().addAll(List.of("Global", "Whisper"));
     chatMode.setValue("Global");
     chatMode.setPrefWidth(110);
     chatMode.setStyle(SceneStyle.INPUT);
@@ -127,7 +135,7 @@ public class HubScene implements SceneInterface {
     HBox inputArea = new HBox(8, chatMode, whisperTargetSelector, chatInput, btnSend);
     inputArea.setAlignment(Pos.CENTER_LEFT);
 
-    chatBox.getChildren().addAll(chatTitle, chatDisplay, inputArea);
+    chatBox.getChildren().addAll(List.of(chatTitle, chatDisplay, inputArea));
 
     btnSend.setOnAction(e -> handleSendMessage());
     chatInput.setOnAction(e -> handleSendMessage());

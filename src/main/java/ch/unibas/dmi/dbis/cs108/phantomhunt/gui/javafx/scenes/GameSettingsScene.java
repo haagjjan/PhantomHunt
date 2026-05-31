@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
@@ -63,7 +64,7 @@ public class GameSettingsScene implements SceneInterface {
     HBox buttons = new HBox(10, saveButton, resetButton, backButton);
     buttons.setAlignment(Pos.CENTER);
 
-    root.getChildren().addAll(title, grid, errorLabel, buttons);
+    root.getChildren().addAll(List.of(title, grid, errorLabel, buttons));
 
     SceneManager sceneManager = SceneManager.getInstance();
     this.scene = new Scene(root, sceneManager.getWidth(), sceneManager.getHeight());

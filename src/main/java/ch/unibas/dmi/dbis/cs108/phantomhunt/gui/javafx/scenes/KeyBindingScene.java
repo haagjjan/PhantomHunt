@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -52,7 +53,7 @@ public class KeyBindingScene implements SceneInterface {
     hubButton.setOnAction(e -> SceneManager.getInstance().showScene(SceneProtocol.HOME));
     resetButton.setOnAction(e -> resetToDefaults());
 
-    root.getChildren().addAll(title, hint, grid, resetButton, hubButton);
+    root.getChildren().addAll(List.of(title, hint, grid, resetButton, hubButton));
 
     SceneManager sceneManager = SceneManager.getInstance();
     this.scene = new Scene(root, sceneManager.getWidth(), sceneManager.getHeight());

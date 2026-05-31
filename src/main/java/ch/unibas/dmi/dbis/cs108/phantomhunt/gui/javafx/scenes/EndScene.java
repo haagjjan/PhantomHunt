@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.Comparator;
+import java.util.List;
 
 /** Scene shown when a game ends, displaying the winner and final rankings. */
 public class EndScene implements SceneInterface {
@@ -59,8 +60,8 @@ public class EndScene implements SceneInterface {
     nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
     TableColumn<Player, Integer> scoreCol = new TableColumn<>("Final Score");
     scoreCol.setCellValueFactory(new PropertyValueFactory<>("score"));
-    rankingTable.getColumns().addAll(nameCol, scoreCol);
-    rankingTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+    rankingTable.getColumns().addAll(List.of(nameCol, scoreCol));
+    rankingTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
 
     scoreCol.setSortType(TableColumn.SortType.DESCENDING);
     rankingTable.getSortOrder().add(scoreCol);
@@ -78,11 +79,14 @@ public class EndScene implements SceneInterface {
     VBox root =
         new VBox(
             18,
-            titleLabel, sep1,
+            titleLabel,
+            sep1,
             winnerText,
-            yourScoreText, finalScoreLabel,
+            yourScoreText,
+            finalScoreLabel,
             sep2,
-            rankLabel, rankingTable,
+            rankLabel,
+            rankingTable,
             buttonBox);
     root.setAlignment(Pos.CENTER);
     root.setPadding(new Insets(40));
